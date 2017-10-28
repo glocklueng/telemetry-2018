@@ -22,6 +22,7 @@ Set up repo
 * Database configuration
 * How to run tests
 * Deployment instructions
+
 To submit: 
 git add *file*
 git commit 
