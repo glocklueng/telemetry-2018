@@ -5,7 +5,7 @@ This README would normally document whatever steps are necessary to get your app
 ### What is this repository for? ###
 Telemetry GUI team for the 2017-2018 season
 
-* Quick summary: 
+* Quick summary: \n
 Bitbucket for all the code related to the GUI project 
 
 * Version 1.0.0
@@ -21,11 +21,11 @@ Set up repo
 * Dependencies
 * Database configuration
 * How to run tests
-* Deployment instructions
-To submit: 
-git add *file*
-git commit
-git push 
+* Deployment instructions\n
+To submit: \n
+git add *file* \n
+git commit \n
+git push \n
 
 ### Contribution guidelines ###
 
