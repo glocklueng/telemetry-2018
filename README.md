@@ -25,11 +25,8 @@ Set up repo
 * Deployment instructions
 
 To submit: 
-
 git add *file*
-
 git commit 
-
 git push 
 
 ### Contribution guidelines ###
