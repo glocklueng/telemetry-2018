@@ -15,13 +15,17 @@ Bitbucket for all the code related to the GUI project
 ### How do I get set up? ###
 
 * Summary of set up
-
+Set up repo 
 
 * Configuration
 * Dependencies
 * Database configuration
 * How to run tests
 * Deployment instructions
+To submit: 
+git add *file*
+git commit
+git push 
 
 ### Contribution guidelines ###
 
@@ -30,6 +34,5 @@ Bitbucket for all the code related to the GUI project
 * Other guidelines
 
 ### Who do I talk to? ###
-
-* Repo owner or admin
+* Repo owner or admin - Raj M or Austin J 
 * Other community or team contact
