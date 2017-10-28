@@ -4,14 +4,19 @@ This README would normally document whatever steps are necessary to get your app
 
 ### What is this repository for? ###
 Telemetry GUI team for the 2017-2018 season
-* Quick summary
 
-* Version
+* Quick summary
+Bitbucket for all the code related to the GUI project 
+
+* Version 1.0.0
+
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
 
 * Summary of set up
+
+
 * Configuration
 * Dependencies
 * Database configuration
