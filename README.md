@@ -15,6 +15,7 @@ Bitbucket for all the code related to the GUI project
 ### How do I get set up? ###
 
 * Summary of set up
+
 Set up repo 
 
 * Configuration
@@ -24,8 +25,11 @@ Set up repo
 * Deployment instructions
 
 To submit: 
+
 git add *file*
+
 git commit 
+
 git push 
 
 ### Contribution guidelines ###
