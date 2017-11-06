@@ -22,7 +22,13 @@ Bitbucket for all the code related to the GUI project
 * Database configuration
 * How to run tests
 * Deployment instructions
+To submit code: 
+- git add *file*
+- git commit 
+- git push
 
+To take in code: 
+- git pull 
 ### Contribution guidelines ###
 
 * Writing tests
