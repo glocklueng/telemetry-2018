@@ -16,6 +16,7 @@ Bitbucket for all the code related to the GUI project
 
 * Summary of set up
 
+Set up repo 
 
 * Configuration
 * Dependencies
@@ -27,8 +28,16 @@ To submit code:
 - git commit 
 - git push
 
+<<<<<<< HEAD
 To take in code: 
 - git pull 
+=======
+To submit: 
+git add *file*; 
+git commit; 
+git push 
+
+>>>>>>> 3b140d8a38fff9269ac54f0ceb8ece6e0b933701
 ### Contribution guidelines ###
 
 * Writing tests
@@ -36,6 +45,11 @@ To take in code:
 * Other guidelines
 
 ### Who do I talk to? ###
+<<<<<<< HEAD
 
 * Repo owner or admin
 * Other community or team contact
+=======
+* Repo owner or admin - Raj M or Austin J 
+* Other community or team contact
+>>>>>>> 3b140d8a38fff9269ac54f0ceb8ece6e0b933701
