@@ -1,0 +1,14 @@
+{
+  "name": "vehicle_app",
+  "version": "1.0.0",
+  "description": "Monitor vehicle health",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Christos Karanassios",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^1.7.9"
+  }
+}
