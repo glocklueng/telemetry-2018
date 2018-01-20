@@ -325,7 +325,7 @@
                 randomError("errors", 13);
             }, updateInterval);
 			
-			var xValues = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V'];
+			var xValues = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U'];
 			var yValues = ['O', 'N', 'M', 'L', 'K', 'J', 'I', 'H', 'G', 'F', 'E', 'D', 'C', 'B', 'A'];
 			var zValues = [
 			  [0.00, 0.00, 0.75, 0.75, 0.00,0.00, 0.00, 0.75, 0.75, 0.00,0.00, 0.00, 0.75, 0.00, 0.75, 0.00,0.00, 0.00, 0.75, 0.00, 0.75],
@@ -449,7 +449,8 @@
     </style>
 </head>
 
-<body background="images/background.png">
+    
+<body>
     <header>
         <img src="Images/logo_waterloo_formula_electric.png" alt="Formula ELectric Logo" width="250px">
 		<div class="btn-group">
@@ -562,6 +563,7 @@
         min: 0,
         max: 100,
         title: "Speed",
+        titleFontColor: "black",
         label: "KM/H",
         levelColors: [
             "#6eff6c",
