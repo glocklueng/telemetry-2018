@@ -23,6 +23,25 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+var counter = 0, transDeg = 0, transRadius = 0, RUNTIME = 50;
+ // IMU FUNCTIONALITY
+function imuMove(counter) {
+   	if (counter % RUNTIME == 0)
+   	{
+    	transDeg =  Math.random() * 6.2;
+    	transRadius =  Math.random() * 28;
+    }
+    if ((counter%RUNTIME)<(RUNTIME/2.0))
+       	document.getElementById("Ball").style.WebkitTransform = "translate(" + (transRadius*Math.cos(transDeg))/(RUNTIME/2)*(counter%(RUNTIME/2)) + "px, "+ (transRadius*Math.sin(transDeg))/(RUNTIME/2)*(counter%(RUNTIME/2)) +"px)";
+    else
+    	document.getElementById("Ball").style.WebkitTransform = "translate(" + (transRadius*Math.cos(transDeg))/(RUNTIME/2)*((RUNTIME/2)-counter%(RUNTIME/2)) + "px, "+ (transRadius*Math.sin(transDeg))/(RUNTIME/2)*((RUNTIME/2)-counter%(RUNTIME/2)) +"px)";
+}
+    
+setInterval(function() {
+	imuMove(counter++)
+}, RUNTIME/10);
+
+
 document.getElementById("rotateButton").onmousedown = function(event) {
     var deg = document.getElementById('rotateDeg').value;
     document.getElementById("steering").style.WebkitTransform = "rotate(" + deg + "deg)";
