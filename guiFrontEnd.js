@@ -24,7 +24,7 @@ function getRandomInt(min, max) {
 }
 
 var counter = 0, transDeg = 0, transRadius = 0, RUNTIME = 50;
- // IMU FUNCTIONALITY
+ // IMU FUNCTIONALITY.
 function imuMove(counter) {
    	if (counter % RUNTIME == 0)
    	{
