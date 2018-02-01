@@ -47,7 +47,7 @@ document.getElementById("rotateButton").onmousedown = function(event) {
     document.getElementById("steering").style.WebkitTransform = "rotate(" + deg + "deg)";
 }
 
-// RAW DATA FUNCTIONALITY
+// RAW DATA FUNCTIONALITY.
 var rawData = function(count) {
     //document.getElementById("raw").innerHTML = document.getElementById("raw").innerHTML + Math.random();
     var symbol = Math.floor(Math.random() * 8 + 1);
