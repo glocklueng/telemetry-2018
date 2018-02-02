@@ -23,8 +23,8 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+// IMU FUNCTIONALITY
 var counter = 0, transDeg = 0, transRadius = 0, RUNTIME = 50;
- // IMU FUNCTIONALITY
 function imuMove(counter) {
    	if (counter % RUNTIME == 0)
    	{
@@ -119,7 +119,7 @@ window.onload = function() {
             name: "Measurement E",
         }]
     });
-        //function that toggles the visible lines
+    //function that toggles the visible lines
     function toggleDataSeries(e) {
         if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
             e.dataSeries.visible = false;
@@ -138,7 +138,7 @@ window.onload = function() {
     var updateInterval = 1000; //time taken for each update
     var dataLength = 30; // number of dataPoints visible at any point
 
-        //function that updtaes the current y values
+    //function that updtaes the current y values
     var updateChart = function(count) {
         count = count || 1;
         for (var j = 0; j < count; j++) {
