@@ -23,26 +23,33 @@
     </script>
 	
     <style type="text/css">
-		h3 {
+		h3 
+        {
 			color: black;
 		}
         
-        .row div {
-            
+        .row div 
+        {
             min-height: 10vh;
         }
+        
 		html 
 		{
 			box-sizing: border-box;
 		}
+        
 		*, *:before, *:after 
 		{
 		  box-sizing: inherit;
 		}
-		body, html, .container-fluid {
+        
+		body, html, .container-fluid 
+        {
 			height: 100%;
 		}
-		hr {
+        
+		hr 
+        {
 			display: block;
 			height: 1px;
 			border: 0;
@@ -51,18 +58,19 @@
 			padding: 0; 
 			border-color: black;
 		}
-	.IMU
-	{
-		position: relative;
-		top: 0;
-		left: 0;
-	}
-	.IMU_BALL
-	{
-		position: relative;
-		top: 0px;
-		left: -92px;
-	}
+        .IMU
+        {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        
+        .IMU_BALL
+        {
+            position: relative;
+            top: 0px;
+            left: -92px;
+        }
     </style>
 </head>
 
@@ -71,13 +79,14 @@
     <header>
         <img src="Images/logo_waterloo_formula_electric.png" alt="Formula ELectric Logo" width="250px">
 		<div class="btn-group">
-			<button type="button" class="btn btn-primary disabled">Test Mode</button>
+            <button type="button" class="btn btn-primary disabled">Test Mode</button>
 			<button type="button" class="btn btn-primary ">Race Mode</button>
 		</div>
     </header>
+                
     <div class="container-fluid full-width">
 	<div class="row"> <!--row 1-->
-		<div class="col-sm-1"><!--column 1 - 1 spot | raw data-->
+		<div class="col-sm-1"> <!--column 1 - 1 spot | raw data-->
 			<div id="raw_data" style="border-style: none;">
 				<h3>Raw data</h3>
 				<p id="raw"></p>
@@ -143,7 +152,7 @@
 				<h3>Errors</h3>
 				<p id="errors"></p>
 			</div>		
-		</div>
+		</div> 
 		
 		<div class="col-sm-5"><!--column 2 - 5 spots-->
 			<div class="row"> 
