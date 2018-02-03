@@ -25,6 +25,7 @@ function getRandomInt(min, max) {
 
 // IMU FUNCTIONALITY
 var counter = 0, transDeg = 0, transRadius = 0, RUNTIME = 50;
+
 function imuMove(counter) {
    	if (counter % RUNTIME == 0)
    	{
@@ -305,7 +306,7 @@ window.onload = function() {
         }]
     });
     batteryChart.render();
-        //create random  battery power values
+    //create random  battery power values
     var updatebatteryChart = function() {
         batteryChart.options.data[0].dataPoints[0] = {
             y: Math.floor(Math.random() * 40 + 1),
@@ -314,7 +315,7 @@ window.onload = function() {
 
         batteryChart.render();
     }
-        //generate random 'RAW Data'
+    //generate random 'RAW Data'
     function randomRawData(section, lines) {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -329,7 +330,7 @@ window.onload = function() {
 
         document.getElementById(section).innerHTML += text;
     }
-        //generate random 'Error Data'
+    //generate random 'Error Data'
     function randomError(section, lines) {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -345,7 +346,7 @@ window.onload = function() {
 
         document.getElementById(section).innerHTML += text;
     }
-        //update interval
+    //update interval
     updateChart(dataLength);
     setInterval(function() {
         updateChart();
