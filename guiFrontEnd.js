@@ -23,9 +23,13 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-// IMU FUNCTIONALITY
-var counter = 0, transDeg = 0, transRadius = 0, RUNTIME = 50;
 
+var counter = 0, transDeg = 0, transRadius = 0, RUNTIME = 50;
+<<<<<<< HEAD
+
+=======
+// IMU FUNCTIONALITY
+>>>>>>> 57e4a623a5b65e3ca1df0f93c32d2fd083467ba6
 function imuMove(counter) {
    	if (counter % RUNTIME == 0)
    	{
