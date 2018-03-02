@@ -1,6 +1,18 @@
+//________________GLOBAL VARIABLES and FUNCTIONS__________________________________________
+var updateInterval = 1000; //time taken for each update
+ 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
+ 
+var speedValue;
+var batteryValue;
+//________________________________________________________________________________________
+
+//________________SPEED GRAPH_____________________________________________________________
 var g = new JustGage({
     id: "gauge",
-    value: getRandomInt(0, 100),
+    value: 0,
     counter: true,
     min: 0,
     max: 100,
@@ -13,16 +25,24 @@ var g = new JustGage({
         "#00ad93"
     ]
 });
+
+/*
 setInterval(function() {
     g.refresh(getRandomInt(0, 100));
 }, 500);
+*/
 
+//________________________________________________________________________________________
+
+/*
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
+*/
 
+//_____________IMU FUNCTIONALITY_________________________________________________________
 var counter = 0, transDeg = 0, transRadius = 0, RUNTIME = 50;
- // IMU FUNCTIONALITY
+
 function imuMove(counter) {
    	if (counter % RUNTIME == 0)
    	{
@@ -39,22 +59,30 @@ setInterval(function() {
 	imuMove(counter++)
 }, RUNTIME/10);
 
+//________________________________________________________________________________________
+
+//______________WHEEL ANGE SIM____________________________________________________________
 
 document.getElementById("rotateButton").onmousedown = function(event) {
     var deg = document.getElementById('rotateDeg').value;
     document.getElementById("steering").style.WebkitTransform = "rotate(" + deg + "deg)";
 }
+//________________________________________________________________________________________
 
+/*
 // RAW DATA FUNCTIONALITY.
 var rawData = function(count) {
     //document.getElementById("raw").innerHTML = document.getElementById("raw").innerHTML + Math.random();
     var symbol = Math.floor(Math.random() * 8 + 1);
 }
+*/
+
+//____________EVERYTHING IS ADDED ONCE THE WINDOW LOADS___________________________________
 
 window.onload = function() {
 
-    var dps = []; // data variable 1
-    var dps2 = []; // data variable 2
+    var speed = []; // data variable 1
+    var battery = []; // data variable 2
     var dps3 = []; // data variable 3
     var dps4 = []; // data variable 4
     var dps5 = []; // data variable 5
@@ -80,17 +108,17 @@ window.onload = function() {
         },
         data: [{
             type: "line",
-            dataPoints: dps,
+            dataPoints: speed,
             xValueType: "number",
             showInLegend: true,
-            name: "Measurement A",
+            name: "Speed",
         }, {
             visible: false,
             type: "line",
-            dataPoints: dps2,
+            dataPoints: battery,
             xValueType: "number",
             showInLegend: true,
-            name: "Measurement B",
+            name: "Battery",
         }, {
             visible: false,
             type: "line",
@@ -124,31 +152,26 @@ window.onload = function() {
         chart.render();
     }
 
-    var xVal = 0; //set an initial value in the x axis
-    var yVal = 100; //set an initial value in the y axis
-    var yVal2 = 110; //set an initial value in the y axis
-    var yVal3 = 115; //set an initial value in the y axis
-    var yVal4 = 101; //set an initial value in the y axis
-    var yVal5 = 111; //set an initial value in the y axis
-    var updateInterval = 1000; //time taken for each update
+    var xVal = -30; //set an initial value in the x axis
+    var yVal3 = 90; //set an initial value in the y axis
+    var yVal4 = 90; //set an initial value in the y axis
+    var yVal5 = 90; //set an initial value in the y axis
     var dataLength = 30; // number of dataPoints visible at any point
 
         //function that updtaes the current y values
     var updateChart = function(count) {
         count = count || 1;
         for (var j = 0; j < count; j++) {
-            yVal = yVal + Math.round(5 + Math.random() * (-5 - 5));
-            yVal2 = yVal2 + Math.round(5 + Math.random() * (-5 - 5));
             yVal3 = yVal3 + Math.round(5 + Math.random() * (-5 - 5));
             yVal4 = yVal4 + Math.round(5 + Math.random() * (-5 - 5));
             yVal5 = yVal5 + Math.round(5 + Math.random() * (-5 - 5));
-            dps.push({
+            speed.push({
                 x: xVal,
-                y: yVal
+                y: speedValue 
             });
-            dps2.push({
+            battery.push({
                 x: xVal,
-                y: yVal2
+                y: batteryValue
             });
             dps3.push({
                 x: xVal,
@@ -164,9 +187,9 @@ window.onload = function() {
             });
             xVal++;
         }
-        if (dps.length > dataLength) {
-            dps.shift();
-            dps2.shift();
+        if (speed.length > dataLength) {
+            speed.shift();
+            battery.shift();
             dps3.shift();
             dps4.shift();
             dps5.shift();
@@ -178,7 +201,10 @@ window.onload = function() {
     var chart2 = new CanvasJS.Chart("voltageChart", {
         backgroundColor: '',
         animationEnabled: true,
-        theme: "dark1",				
+        theme: "dark1",
+        tooltip: {
+            animationEnabled: true
+        },
         axisY: {
             title: "Voltage (V)",
             titleFontColor: "black",
@@ -277,7 +303,8 @@ window.onload = function() {
 
         chart2.render();
     }
-    //chart for battery power 
+    
+    //__________BATTERY POWER GRAPH_______________________________________________________
     var batteryChart = new CanvasJS.Chart("batteryFill", {
         backgroundColor: '',
         animationEnabled: true,
@@ -300,15 +327,28 @@ window.onload = function() {
         }]
     });
     batteryChart.render();
-        //create random  battery power values
+    
     var updatebatteryChart = function() {
         batteryChart.options.data[0].dataPoints[0] = {
-            y: Math.floor(Math.random() * 40 + 1),
+            y: batteryValue,
             label: "Battery Charge"
         };
 
         batteryChart.render();
     }
+    
+    //____________________________________________________________________________________
+
+
+
+    //____________ERRORS AND RAW DATA GENERATION__________________________________________
+
+    // RAW DATA FUNCTIONALITY
+    var rawData = function(count) {
+        //document.getElementById("raw").innerHTML = document.getElementById("raw").innerHTML + Math.random();
+        var symbol = Math.floor(Math.random() * 8 + 1);
+    }
+
         //generate random 'RAW Data'
     function randomRawData(section, lines) {
         var text = "";
@@ -340,15 +380,10 @@ window.onload = function() {
 
         document.getElementById(section).innerHTML += text;
     }
-        //update interval
-    updateChart(dataLength);
-    setInterval(function() {
-        updateChart();
-        updateChart2();
-        updatebatteryChart();
-        randomRawData("raw", 15);
-        randomError("errors", 13);
-    }, updateInterval);
+    
+    //____________________________________________________________________________________
+ 
+    //_______________________________HEATMAP SCRIPTS______________________________________
     
     
     var xValues = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U'];
@@ -432,31 +467,55 @@ window.onload = function() {
 
     for ( var i = 0; i < yValues.length; i++ ) 
     {
-      for ( var j = 0; j < xValues.length; j++ ) 
-      {
-        var currentValue = zValues[i][j];
-        var textColor = 'black';
-        var result = {
-          xref: 'x1',
-          yref: 'y1',
-          x: xValues[j],
-          y: yValues[i],
-          text: zValues[i][j],
-          font: {
-            family: 'Arial',
-            size: 9,
-            color: 'rgb(50, 171, 96)'
-          },
-          showarrow: false,
-          font: {
-            color: textColor
-          }
-        };
-        layout.annotations.push(result);
-      }
+      for ( var j = 0; j < xValues.length; j++ ) {
+            var currentValue = zValues[i][j];
+            if (currentValue != 0.0) {
+            var textColor = 'white';
+            }
+            else{
+                var textColor = 'black';
+            }
+
+            var result = {
+                xref: 'x1',
+                yref: 'y1',
+                x: xValues[j],
+                y: yValues[i],
+                text: zValues[i][j],
+                font: {
+                    family: 'Arial',
+                    size: 10,
+                    color: 'rgb(50, 171, 96)'
+                },
+                showarrow: false,
+                font: {
+                    color: textColor
+                }
+            };
+
+            layout.annotations.push(result);
+         }
     }
 
     Plotly.newPlot('heatMap', data, layout);
+    
+    //____________________________________________________________________________________
 
+ 
+    //_________UPDATING NUMBERS FOR EVERYTHING____________________________________________
+    updateChart(dataLength);
+
+    setInterval(function() {
+        speedValue = getRandomInt(10, 100);
+        batteryValue = getRandomInt(10, 100);
+        updateChart();
+        updateChart2();
+        updatebatteryChart();
+        randomRawData("raw", 15);
+        randomError("errors", 13);
+        g.refresh(speedValue);
+    }, updateInterval);
+    //____________________________________________________________________________________
 
 }
+//________________________________________________________________________________________
