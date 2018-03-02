@@ -1,5 +1,3 @@
-
-
 var g = new JustGage({
     id: "gauge",
     value: getRandomInt(0, 100),
@@ -23,13 +21,8 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-
 var counter = 0, transDeg = 0, transRadius = 0, RUNTIME = 50;
-<<<<<<< HEAD
-
-=======
-// IMU FUNCTIONALITY
->>>>>>> 57e4a623a5b65e3ca1df0f93c32d2fd083467ba6
+ // IMU FUNCTIONALITY
 function imuMove(counter) {
    	if (counter % RUNTIME == 0)
    	{
@@ -121,7 +114,7 @@ window.onload = function() {
             name: "Measurement E",
         }]
     });
-    //function that toggles the visible lines
+        //function that toggles the visible lines
     function toggleDataSeries(e) {
         if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
             e.dataSeries.visible = false;
@@ -140,7 +133,7 @@ window.onload = function() {
     var updateInterval = 1000; //time taken for each update
     var dataLength = 30; // number of dataPoints visible at any point
 
-    //function that updtaes the current y values
+        //function that updtaes the current y values
     var updateChart = function(count) {
         count = count || 1;
         for (var j = 0; j < count; j++) {
@@ -307,7 +300,7 @@ window.onload = function() {
         }]
     });
     batteryChart.render();
-    //create random  battery power values
+        //create random  battery power values
     var updatebatteryChart = function() {
         batteryChart.options.data[0].dataPoints[0] = {
             y: Math.floor(Math.random() * 40 + 1),
@@ -316,7 +309,7 @@ window.onload = function() {
 
         batteryChart.render();
     }
-    //generate random 'RAW Data'
+        //generate random 'RAW Data'
     function randomRawData(section, lines) {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -331,7 +324,7 @@ window.onload = function() {
 
         document.getElementById(section).innerHTML += text;
     }
-    //generate random 'Error Data'
+        //generate random 'Error Data'
     function randomError(section, lines) {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -347,7 +340,7 @@ window.onload = function() {
 
         document.getElementById(section).innerHTML += text;
     }
-    //update interval
+        //update interval
     updateChart(dataLength);
     setInterval(function() {
         updateChart();
