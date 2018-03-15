@@ -11,25 +11,22 @@
   <script src="export.min.js"></script>
   <link rel="stylesheet" href="hexport.ccs" type="text/css" media="all" />
   <script src="light.js"></script>
-  <image id="top_view" src="FE_car_top_view.png">
 
-
-    <div id="chartdiv1" style="width: 45%; height: 500px; display: inline-block;"></div>
-    <div id="chartdiv2" style="width: 45%; height: 500px; display: inline-block;"></div><br/>
-    <div id="chartdiv3" style="width: 45%; height: 500px; display: inline-block;"></div>
-    <div id="chartdiv4" style="width: 45%; height: 500px; display: inline-block;"></div>
-
+    <div id="container">
+      <div id="chartdiv1" style="width: 45%; height: 500px; display: inline-block;"></div>
+      <div id="chartdiv2" style="width: 45%; height: 500px; display: inline-block;"></div><br/>
+      <img id="top_view" src="FE_car_top_view.png"></br>
+      <div id="chartdiv3" style="width: 45%; height: 500px; display: inline-block;"></div>
+      <div id="chartdiv4" style="width: 45%; height: 500px; display: inline-block;"></div>
+    </div>
 
     <style>
-      image {
-        position: absolute;
-        margin: auto;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
+      #container {height:auto; line-height: normal; text-align: center;}
+      #container img {vertical-align: middle;}
     </style>
+
+
+
 
 
     <!-- Chart code -->
